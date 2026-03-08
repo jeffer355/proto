@@ -9,7 +9,6 @@
     <link rel="icon" href="/favicon.png" type="image/png">
     <link rel="stylesheet" href="sty.css">
     <style>
-        /* [Mantén aquí todo el código CSS interno que ya tenías para cotiza-page] */
         .cotiza-page { padding: 160px 10% 80px 10%; display: flex; flex-direction: row; justify-content: space-between; align-items: flex-start; gap: 60px; background: linear-gradient(135deg, #f4f7f6 0%, #ffffff 100%); min-height: 100vh; }
         .form-side { flex: 1.2; min-width: 320px; background: #ffffff; padding: 45px 50px; border-radius: 12px; box-shadow: 0 15px 40px rgba(0,0,0,0.06); border-top: 5px solid #00adef; }
         .title-corp { color: #003366; font-size: clamp(2.2rem, 4vw, 3.2rem); line-height: 1.1; margin: 0 0 8px 0; font-weight: 900; letter-spacing: -1px; }
@@ -63,7 +62,12 @@
             <h1 class="title-corp">COTIZA TU SERVICIO<br><span style="font-size: 0.6em; color: #00adef;">DE METALMECÁNICA</span></h1>
             <p class="subtitle-gray">Si estás interesado en un servicio, completa tus datos para enviarte un presupuesto:</p>
 
-            <form action="https://formsubmit.co/inversionesa3el@gmail.com" method="POST" class="form-grid">
+            <form action="https://formsubmit.co/ventas@a3el.pe" method="POST" class="form-grid">
+                
+                <input type="hidden" name="_subject" value="Nueva Cotización desde la Web - A3EL">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_captcha" value="false">
+
                 <input type="text" name="nombre" placeholder="Nombre de contacto" required>
                 <input type="text" name="apellidos" placeholder="Apellidos" required>
                 <input type="text" name="empresa" placeholder="Empresa">
@@ -112,7 +116,7 @@
                 </div>
                 <div class="email-box">
                     <p><strong>Correo Electrónico:</strong></p>
-                    <p>inversionesa3el@gmail.com</p>
+                    <p>ventas@a3el.pe</p>
                 </div>
             </div>
             <div class="footer-col ubicacion">
