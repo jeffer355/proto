@@ -62,35 +62,42 @@
             <h1 class="title-corp">COTIZA TU SERVICIO<br><span style="font-size: 0.6em; color: #00adef;">DE METALMECÁNICA</span></h1>
             <p class="subtitle-gray">Si estás interesado en un servicio, completa tus datos para enviarte un presupuesto:</p>
 
-            <form action="https://formsubmit.co/ventas@a3el.pe" method="POST" class="form-grid">
+            <form id="cotizacionForm" class="form-grid">
                 
                 <input type="hidden" name="_subject" value="Nueva Cotización desde la Web - A3EL">
                 <input type="hidden" name="_template" value="table">
                 <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_language" value="es">
+                <input type="hidden" name="_from" value="COTIZACIÓN WEB A3EL">
 
-                <input type="text" name="nombre" placeholder="Nombre de contacto" required>
-                <input type="text" name="apellidos" placeholder="Apellidos" required>
-                <input type="text" name="empresa" placeholder="Empresa">
-                <input type="text" name="ruc" placeholder="RUC">
-                <input type="email" name="email" placeholder="Email corporativo o personal" required>
-                <input type="tel" name="telefono" placeholder="Teléfono / Celular" required>
+                <input type="text" name="NOMBRE" placeholder="Nombre de contacto" required>
+                <input type="text" name="APELLIDOS" placeholder="Apellidos" required>
+                <input type="text" name="EMPRESA" placeholder="Empresa">
+                <input type="text" name="RUC" placeholder="RUC">
+                <input type="email" name="EMAIL" placeholder="Email corporativo o personal" required>
+                <input type="tel" name="TELÉFONO" placeholder="Teléfono / Celular" required>
                 
-                <select name="servicio" class="full-width">
+                <select name="SERVICIO SOLICITADO" class="full-width">
                     <option value="" disabled selected>Selecciona un servicio...</option>
                     <option value="unidades">UNIDADES: Conversión y Modificación</option>
                     <option value="equipos">EQUIPOS: Mantenimiento y Seguridad</option>
                     <option value="fabricacion">FABRICACIÓN: Tolvas y Carrocerías</option>
                 </select>
 
-                <textarea name="comentarios" class="full-width" placeholder="Cuéntanos los detalles de tu requerimiento..." rows="4"></textarea>
+                <textarea name="DETALLES DEL REQUERIMIENTO" class="full-width" placeholder="Cuéntanos los detalles de tu requerimiento..." rows="4"></textarea>
 
                 <div class="full-width" style="display: flex; align-items: center; gap: 8px;">
                     <input type="checkbox" id="terms" required style="width: auto; margin: 0; cursor: pointer;">
                     <label for="terms" style="font-size: 0.85rem; color: #555; cursor: pointer;">Acepto los Términos y condiciones.</label>
                 </div>
 
-                <button type="submit" class="btn-cotizar-now">Enviar Cotización</button>
+                <button type="submit" class="btn-cotizar-now" id="btnEnviar">Enviar Cotización</button>
             </form>
+
+            <div id="mensajeExito" style="display:none; text-align: center; padding: 30px; border: 2px solid #00adef; border-radius: 8px; margin-top: 20px;">
+                <h2 style="color: #003366;">¡COTIZACIÓN ENVIADA!</h2>
+                <p style="color: #555;">Gracias por elegir A3EL. Nos contactaremos con usted muy pronto.</p>
+            </div>
         </div>
 
         <div class="info-side">
