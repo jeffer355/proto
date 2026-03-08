@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cotizar Servicio de Metalmecánica | A3EL EIRL</title>
+    <meta name="description" content="Solicita una cotización rápida para servicios de conversión de unidades, mantenimiento de equipos y fabricación de carrocerías. Presupuestos sin compromiso.">
+    <link rel="canonical" href="https://www.tudominio.com/cotizar.html">
+    <link rel="stylesheet" href="sty.css">
+    <style>
+        /* [Mantén aquí todo el código CSS interno que ya tenías para cotiza-page] */
+        .cotiza-page { padding: 160px 10% 80px 10%; display: flex; flex-direction: row; justify-content: space-between; align-items: flex-start; gap: 60px; background: linear-gradient(135deg, #f4f7f6 0%, #ffffff 100%); min-height: 100vh; }
+        .form-side { flex: 1.2; min-width: 320px; background: #ffffff; padding: 45px 50px; border-radius: 12px; box-shadow: 0 15px 40px rgba(0,0,0,0.06); border-top: 5px solid #00adef; }
+        .title-corp { color: #003366; font-size: clamp(2.2rem, 4vw, 3.2rem); line-height: 1.1; margin: 0 0 8px 0; font-weight: 900; letter-spacing: -1px; }
+        .subtitle-gray { color: #777; font-size: 1.1rem; margin-bottom: 25px; font-weight: 400; }
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 25px; }
+        .form-grid input, .form-grid select, .form-grid textarea { padding: 15px 16px; border: 1px solid #e0e0e0; border-radius: 8px; width: 100%; font-size: 0.95rem; font-family: inherit; background-color: #fafafa; transition: all 0.3s ease; }
+        .form-grid input:focus, .form-grid select:focus, .form-grid textarea:focus { border-color: #00adef; background-color: #ffffff; box-shadow: 0 0 0 4px rgba(0, 173, 239, 0.1); outline: none; }
+        .full-width { grid-column: span 2; }
+        .btn-cotizar-now { background-color: #00adef; color: #ffffff; border: none; padding: 18px 45px; font-weight: 800; border-radius: 8px; cursor: pointer; margin-top: 15px; text-transform: uppercase; transition: all 0.3s ease; letter-spacing: 1px; box-shadow: 0 6px 20px rgba(0, 173, 239, 0.3); }
+        .btn-cotizar-now:hover { background-color: #003366; transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0, 51, 102, 0.3); }
+        .info-side { flex: 0.8; min-width: 320px; display: flex; flex-direction: column; align-items: flex-end; text-align: right; padding-top: 20px; }
+        .phone-list { list-style: none; margin-bottom: 40px; display: flex; flex-direction: column; gap: 15px; align-items: flex-end; }
+        .phone-list li { font-size: 1.2rem; font-weight: 700; color: #003366; background: #ffffff; padding: 12px 25px; border-radius: 50px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); display: inline-flex; align-items: center; gap: 12px; border: 1px solid #f4f4f4; border-left: 4px solid #00adef; }
+        .truck-img { width: 100%; max-width: 550px; margin-top: 20px; filter: drop-shadow(15px 15px 25px rgba(0,0,0,0.15)); transition: transform 0.4s ease; }
+        .truck-img:hover { transform: scale(1.02) rotate(-1deg); }
+        @media (max-width: 992px) {
+            .cotiza-page { flex-direction: column; padding-top: 130px; gap: 40px; }
+            .form-side { padding: 35px 25px; }
+            .info-side { align-items: center; text-align: center; order: -1; }
+            .phone-list { align-items: center; }
+            .form-grid { grid-template-columns: 1fr; }
+            .full-width { grid-column: span 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="main-header">
+        <a href="index.html" class="logo">
+            <img src="img/logo.png" alt="Logo A3EL EIRL Blanco" class="logo-white">
+            <img src="img/logo.png" alt="Logo A3EL EIRL Color" class="logo-color">
+        </a>
+        <div class="menu-toggle" id="mobile-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <nav id="nav-menu">
+            <ul>
+                <li><a href="index.html#inicio" style="color: #1a1a1a;">Inicio</a></li>
+                <li><a href="index.html#nosotros" style="color: #1a1a1a;">Nosotros</a></li>
+                <li><a href="index.html#servicios" style="color: #1a1a1a;">Servicios</a></li>
+                <li><a href="cotizar.html" style="color: #1a1a1a;">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="cotiza-page">
+        <div class="form-side">
+            <h1 class="title-corp">COTIZA TU SERVICIO<br><span style="font-size: 0.6em; color: #00adef;">DE METALMECÁNICA</span></h1>
+            <p class="subtitle-gray">Si estás interesado en un servicio, completa tus datos para enviarte un presupuesto:</p>
+
+            <form action="https://formsubmit.co/inversionesa3el@gmail.com" method="POST" class="form-grid">
+                <input type="text" name="nombre" placeholder="Nombre de contacto" required>
+                <input type="text" name="apellidos" placeholder="Apellidos" required>
+                <input type="text" name="empresa" placeholder="Empresa">
+                <input type="text" name="ruc" placeholder="RUC">
+                <input type="email" name="email" placeholder="Email corporativo o personal" required>
+                <input type="tel" name="telefono" placeholder="Teléfono / Celular" required>
+                
+                <select name="servicio" class="full-width">
+                    <option value="" disabled selected>Selecciona un servicio...</option>
+                    <option value="unidades">UNIDADES: Conversión y Modificación</option>
+                    <option value="equipos">EQUIPOS: Mantenimiento y Seguridad</option>
+                    <option value="fabricacion">FABRICACIÓN: Tolvas y Carrocerías</option>
+                </select>
+
+                <textarea name="comentarios" class="full-width" placeholder="Cuéntanos los detalles de tu requerimiento..." rows="4"></textarea>
+
+                <div class="full-width" style="display: flex; align-items: center; gap: 8px;">
+                    <input type="checkbox" id="terms" required style="width: auto; margin: 0; cursor: pointer;">
+                    <label for="terms" style="font-size: 0.85rem; color: #555; cursor: pointer;">Acepto los Términos y condiciones.</label>
+                </div>
+
+                <button type="submit" class="btn-cotizar-now">Enviar Cotización</button>
+            </form>
+        </div>
+
+        <div class="info-side">
+            <ul class="phone-list">
+                <li>📞 +51 955 173 338</li>
+            </ul>
+            <img src="https://png.pngtree.com/png-vector/20250429/ourmid/pngtree-bright-orange-dump-truck-parked-on-construction-site-png-image_16052413.png" alt="Camión volquete en sitio de construcción - Unidad A3EL" class="truck-img" loading="lazy">
+        </div>
+    </main>
+
+    <footer class="footer-industrial">
+        <div class="footer-container">
+            <div class="footer-col branding">
+                <img src="img/logo.png" alt="A3EL Logo" class="footer-logo-grande" style="object-fit: contain; max-width: 100%; height: 90px;" loading="lazy">
+                <p class="propuesta-valor">
+                    Servicios realizados con materiales de primera calidad y en estricto cumplimiento de las normas y procedimientos técnicos exigidos.
+                </p>
+            </div>
+            <div class="footer-col contacto-info">
+                <div class="telefonos-box">
+                    <p><strong>Atención Inmediata:</strong></p>
+                    <p style="color: #00adef;">+51 955 173 338</p>
+                </div>
+                <div class="email-box">
+                    <p><strong>Correo Electrónico:</strong></p>
+                    <p>inversionesa3el@gmail.com</p>
+                </div>
+            </div>
+            <div class="footer-col ubicacion">
+                <div class="address-box">
+                    <p><strong>Dirección:</strong></p>
+                    <p>Mz I Lt 7 Lotización Nieveria 7D,</p>
+                    <p>Lurigancho Chosica - Lima.</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; Copyright 2026 A3EL EIRL. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    <script src="scrp.js"></script>
+</body>
+</html>
