@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cotizar Servicio de Metalmecánica | A3EL EIRL</title>
-    <meta name="description" content="Solicita una cotización rápida para servicios de conversión de unidades, mantenimiento de equipos y fabricación de carrocerías. Presupuestos sin compromiso.">
+    <meta name="description" content="Solicita una cotización rápida para servicios de conversión de unidades, mantenimiento de equipos y fabricación de carrocerías.">
     <link rel="canonical" href="https://www.a3el.pe/cotizar.html">
     <link rel="icon" href="/favicon.png" type="image/png">
     <link rel="stylesheet" href="sty.css">
@@ -23,7 +23,6 @@
         .phone-list { list-style: none; margin-bottom: 40px; display: flex; flex-direction: column; gap: 15px; align-items: flex-end; }
         .phone-list li { font-size: 1.2rem; font-weight: 700; color: #003366; background: #ffffff; padding: 12px 25px; border-radius: 50px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); display: inline-flex; align-items: center; gap: 12px; border: 1px solid #f4f4f4; border-left: 4px solid #00adef; }
         .truck-img { width: 100%; max-width: 550px; margin-top: 20px; filter: drop-shadow(15px 15px 25px rgba(0,0,0,0.15)); transition: transform 0.4s ease; }
-        .truck-img:hover { transform: scale(1.02) rotate(-1deg); }
         @media (max-width: 992px) {
             .cotiza-page { flex-direction: column; padding-top: 130px; gap: 40px; }
             .form-side { padding: 35px 25px; }
@@ -37,22 +36,16 @@
 <body>
 
     <header id="main-header">
-        <a href="index.html" class="logo">
+       <a href="index.html" class="logo">
             <img src="img/logo.webp" alt="Logo A3EL EIRL Blanco" class="logo-white">
             <img src="img/logo.webp" alt="Logo A3EL EIRL Color" class="logo-color">
         </a>
-        <div class="menu-toggle" id="mobile-menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-
         <nav id="nav-menu">
             <ul>
-                <li><a href="index.html#inicio" style="color: #1a1a1a;">Inicio</a></li>
-                <li><a href="index.html#nosotros" style="color: #1a1a1a;">Nosotros</a></li>
-                <li><a href="index.html#servicios" style="color: #1a1a1a;">Servicios</a></li>
-                <li><a href="cotizar.html" style="color: #1a1a1a;">Contacto</a></li>
+                <li><a href="index.html#inicio">Inicio</a></li>
+                <li><a href="index.html#nosotros">Nosotros</a></li>
+                <li><a href="index.html#servicios">Servicios</a></li>
+                <li><a href="cotizar.html">Contacto</a></li>
             </ul>
         </nav>
     </header>
@@ -60,34 +53,27 @@
     <main class="cotiza-page">
         <div class="form-side">
             <h1 class="title-corp">COTIZA TU SERVICIO<br><span style="font-size: 0.6em; color: #00adef;">DE METALMECÁNICA</span></h1>
-            <p class="subtitle-gray">Si estás interesado en un servicio, completa tus datos para enviarte un presupuesto:</p>
+            <p class="subtitle-gray">Completa tus datos para enviarte un presupuesto personalizado:</p>
 
             <form id="cotizacionForm" class="form-grid">
+                <input type="text" name="nombre" placeholder="Nombre" required>
+                <input type="text" name="apellidos" placeholder="Apellidos" required>
+                <input type="text" name="empresa" placeholder="Empresa">
+                <input type="text" name="ruc" placeholder="RUC">
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="tel" name="telefono" placeholder="Teléfono" required>
                 
-                <input type="hidden" name="_subject" value="Nueva Cotización desde la Web - A3EL">
-                <input type="hidden" name="_template" value="table">
-                <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_language" value="es">
-                <input type="hidden" name="_from" value="COTIZACIÓN WEB A3EL">
-
-                <input type="text" name="NOMBRE" placeholder="Nombre de contacto" required>
-                <input type="text" name="APELLIDOS" placeholder="Apellidos" required>
-                <input type="text" name="EMPRESA" placeholder="Empresa">
-                <input type="text" name="RUC" placeholder="RUC">
-                <input type="email" name="EMAIL" placeholder="Email corporativo o personal" required>
-                <input type="tel" name="TELÉFONO" placeholder="Teléfono / Celular" required>
-                
-                <select name="SERVICIO SOLICITADO" class="full-width">
+                <select name="servicio" class="full-width">
                     <option value="" disabled selected>Selecciona un servicio...</option>
-                    <option value="unidades">UNIDADES: Conversión y Modificación</option>
-                    <option value="equipos">EQUIPOS: Mantenimiento y Seguridad</option>
-                    <option value="fabricacion">FABRICACIÓN: Tolvas y Carrocerías</option>
+                    <option value="Conversión de Unidades">UNIDADES: Conversión y Modificación</option>
+                    <option value="Mantenimiento de Equipos">EQUIPOS: Mantenimiento y Seguridad</option>
+                    <option value="Fabricación de Carrocerías">FABRICACIÓN: Tolvas y Carrocerías</option>
                 </select>
 
-                <textarea name="DETALLES DEL REQUERIMIENTO" class="full-width" placeholder="Cuéntanos los detalles de tu requerimiento..." rows="4"></textarea>
+                <textarea name="detalles" class="full-width" placeholder="Cuéntanos los detalles de tu requerimiento..." rows="4"></textarea>
 
                 <div class="full-width" style="display: flex; align-items: center; gap: 8px;">
-                    <input type="checkbox" id="terms" required style="width: auto; margin: 0; cursor: pointer;">
+                    <input type="checkbox" id="terms" required style="width: auto; cursor: pointer;">
                     <label for="terms" style="font-size: 0.85rem; color: #555; cursor: pointer;">Acepto los Términos y condiciones.</label>
                 </div>
 
@@ -104,40 +90,22 @@
             <ul class="phone-list">
                 <li>📞 +51 955 173 338</li>
             </ul>
-            <img src="https://png.pngtree.com/png-vector/20250429/ourmid/pngtree-bright-orange-dump-truck-parked-on-construction-site-png-image_16052413.png" alt="Camión volquete en sitio de construcción - Unidad A3EL" class="truck-img" loading="lazy">
+            <img src="https://png.pngtree.com/png-vector/20250429/ourmid/pngtree-bright-orange-dump-truck-parked-on-construction-site-png-image_16052413.png" alt="Unidad A3EL" class="truck-img" loading="lazy">
         </div>
     </main>
 
     <footer class="footer-industrial">
-        <div class="footer-container">
-            <div class="footer-col branding">
-                <img src="img/logo.webp" alt="A3EL Logo" class="footer-logo-grande" style="object-fit: contain; max-width: 100%; height: 90px;" loading="lazy">
-                <p class="propuesta-valor">
-                    Servicios realizados con materiales de primera calidad y en estricto cumplimiento de las normas y procedimientos técnicos exigidos.
-                </p>
-            </div>
-            <div class="footer-col contacto-info">
-                <div class="telefonos-box">
-                    <p><strong>Atención Inmediata:</strong></p>
-                    <p style="color: #00adef;">+51 955 173 338</p>
-                </div>
-                <div class="email-box">
-                    <p><strong>Correo Electrónico:</strong></p>
-                    <p>ventas@a3el.pe</p>
-                </div>
-            </div>
-            <div class="footer-col ubicacion">
-                <div class="address-box">
-                    <p><strong>Dirección:</strong></p>
-                    <p>Mz I Lt 7 Lotización Nieveria 7D,</p>
-                    <p>Lurigancho Chosica - Lima.</p>
-                </div>
-            </div>
-        </div>
         <div class="footer-bottom">
             <p>&copy; Copyright 2026 A3EL EIRL. Todos los derechos reservados.</p>
         </div>
     </footer>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+       (function(){
+          emailjs.init("t9S2bRBvOepE9224i"); 
+       })();
+    </script>
     <script src="scrp.js"></script>
 </body>
 </html>

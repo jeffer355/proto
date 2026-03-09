@@ -1,14 +1,12 @@
-// Manejo del Scroll para el Header
+// --- HEADER & MENU LOGIC ---
 window.addEventListener('scroll', function() {
     const header = document.getElementById('main-header');
-    if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-    } else {
-        header.classList.remove('scrolled');
+    if (header) {
+        if (window.scrollY > 50) header.classList.add('scrolled');
+        else header.classList.remove('scrolled');
     }
 });
 
-// Lógica del Menú Hamburguesa
 const menuToggle = document.getElementById('mobile-menu');
 const navMenu = document.getElementById('nav-menu');
 
@@ -19,25 +17,7 @@ if (menuToggle) {
     });
 }
 
-// Cerrar menú al clic
-const navLinks = document.querySelectorAll('#nav-menu a');
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        if (navMenu.classList.contains('active')) navMenu.classList.remove('active');
-    });
-});
-
-// Cambiar imágenes en tarjetas
-function cambiarImagen(elementoMiniatura) {
-    const tarjeta = elementoMiniatura.closest('.proyecto-card');
-    const imgPrincipal = tarjeta.querySelector('.img-principal-tarjeta');
-    imgPrincipal.src = elementoMiniatura.src;
-    const miniaturas = tarjeta.querySelectorAll('.miniatura');
-    miniaturas.forEach(min => min.classList.remove('activa'));
-    elementoMiniatura.classList.add('activa');
-}
-
-// ENVÍO AJAX - SIN SALIR DE LA WEB
+// --- EMAILJS SEND LOGIC ---
 const contactForm = document.getElementById('cotizacionForm');
 const btnEnviar = document.getElementById('btnEnviar');
 const mensajeExito = document.getElementById('mensajeExito');
@@ -49,21 +29,20 @@ if (contactForm) {
         btnEnviar.innerText = "ENVIANDO...";
         btnEnviar.disabled = true;
 
-        const formData = new FormData(contactForm);
+        const serviceID = 'service_zoho'; 
+        const templateID = 'template_taj0kdg'; // Tu nuevo ID actualizado
 
-        fetch("https://formsubmit.co/ajax/ventas@a3el.pe", {
-            method: "POST",
-            body: formData
-        })
-        .then(response => response.json())
-        .then(data => {
-            contactForm.style.display = 'none'; 
-            mensajeExito.style.display = 'block'; 
-        })
-        .catch(error => {
-            alert("Error al enviar. Intente nuevamente.");
-            btnEnviar.innerText = "Enviar Cotización";
-            btnEnviar.disabled = false;
-        });
+        emailjs.sendForm(serviceID, templateID, this)
+            .then(() => {
+                // Éxito: Ocultar formulario y mostrar mensaje
+                contactForm.style.display = 'none'; 
+                mensajeExito.style.display = 'block'; 
+                window.scrollTo({ top: mensajeExito.offsetTop - 150, behavior: 'smooth' });
+            }, (error) => {
+                alert("Ocurrió un error al enviar. Por favor intente nuevamente.");
+                console.error("EmailJS Error:", error);
+                btnEnviar.innerText = "Enviar Cotización";
+                btnEnviar.disabled = false;
+            });
     });
 }
