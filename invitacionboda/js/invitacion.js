@@ -56,24 +56,7 @@
  const maps=[...document.querySelectorAll('a')].filter(a=>a.textContent.trim()==='VER UBICACIÓN');
  external(maps[0],c.ceremonia.mapa);external(maps[1],c.recepcion.mapa);
 
- const urlParams=new URLSearchParams(window.location.search);
- const nombreInvitado=urlParams.get('invitado')||urlParams.get('nombre')||urlParams.get('to')||urlParams.get('i');
- const numPases=urlParams.get('pases')||urlParams.get('pase')||urlParams.get('p');
- if(nombreInvitado){
-  const contenedorPase=document.createElement('div');
-  contenedorPase.className='pase-personalizado-invitado';
-  contenedorPase.style.cssText='margin:15px auto 20px;text-align:center;color:#a7815d;font-family:inherit;';
-  let textoPases=numPases?` (${numPases} ${numPases==='1'?'pase':'pases'})`:'';
-  contenedorPase.innerHTML=`<span style="display:block;font-size:0.75rem;letter-spacing:2px;text-transform:uppercase;opacity:0.85;margin-bottom:4px;">Invitación especial para:</span><strong style="display:block;font-size:1.15rem;color:#425577;letter-spacing:0.5px;">${nombreInvitado}${textoPases}</strong>`;
-  const botonContainer=q('.elementor-element-cc1276c');
-  if(botonContainer&&botonContainer.parentElement)botonContainer.parentElement.insertBefore(contenedorPase,botonContainer);
- }
- let finalAsistenciaUrl=c.asistenciaUrl;
- if(nombreInvitado&&finalAsistenciaUrl){
-  let nombreFormateado=nombreInvitado+(numPases?` (${numPases} ${numPases==='1'?'pase':'pases'})`:'');
-  finalAsistenciaUrl=finalAsistenciaUrl.replace('%5Bescribe%20tu%20nombre%5D',encodeURIComponent(nombreFormateado)).replace('[escribe tu nombre]',encodeURIComponent(nombreFormateado));
- }
- external([...document.querySelectorAll('a')].find(a=>a.textContent.trim()==='Confirmar Asistencia'),finalAsistenciaUrl);
+ external([...document.querySelectorAll('a')].find(a=>a.textContent.trim()==='Confirmar Asistencia'),c.asistenciaUrl);
  // Preserve the original music control but don't silently play the sample song.
  const audio=c.musica?new Audio(c.musica):null;
  if(audio){audio.loop=true;audio.preload='none';}
