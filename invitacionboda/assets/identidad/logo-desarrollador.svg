@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 103" role="img" aria-label="Desarrollo web">
+  <g fill="none" stroke="#c5a76b" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="8" y="20" width="75" height="53" rx="5"/>
+    <path d="M30 84h31M45 73v11M33 36l-10 10 10 10M58 36l10 10-10 10M51 32L40 60"/>
+  </g>
+  <text x="99" y="48" fill="#c5a76b" font-family="Georgia,serif" font-size="24">Desarrollo</text>
+  <text x="101" y="72" fill="#c5a76b" font-family="Georgia,serif" font-size="16" letter-spacing="5">WEB</text>
+</svg>
